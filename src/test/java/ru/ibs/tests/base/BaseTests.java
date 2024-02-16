@@ -1,4 +1,4 @@
-package ru.ibs.tests;
+package ru.ibs.tests.base;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
@@ -6,12 +6,14 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import ru.ibs.framework.managers.DriverManager;
 
 import java.time.Duration;
 
 public class BaseTests {
 
-    protected WebDriver driver;
+    protected final DriverManager driverManager = DriverManager.getDriverManager();
+
 
     @BeforeAll
     static void beforeAll() {
@@ -34,19 +36,19 @@ public class BaseTests {
             default:
                 driver = new ChromeDriver();
         }*/
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));
-        driver.manage().timeouts().scriptTimeout(Duration.ofSeconds(15));
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
-        driver.get("https://www.citilink.ru/");
+
+        driverManager.getDriver().manage().window().maximize();
+        driverManager.getDriver().manage().timeouts().pageLoadTimeout(Duration.ofSeconds(15));
+        driverManager.getDriver().manage().timeouts().scriptTimeout(Duration.ofSeconds(15));
+        driverManager.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+        driverManager.getDriver().get("https://www.citilink.ru/");
 
     }
 
 
     @AfterEach
     void afterEach() {
-        driver.quit();
+        driverManager.getDriver().quit();
 
     }
 

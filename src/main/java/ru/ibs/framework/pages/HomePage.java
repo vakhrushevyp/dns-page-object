@@ -2,29 +2,37 @@ package ru.ibs.framework.pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import ru.ibs.framework.managers.DriverManager;
 
-public class MainPage {
+import java.util.List;
 
-    WebDriver driver;
+public class HomePage extends BasePage {
+
+
+    public HomePage(WebDriver driver) {
+        super(driver);
+    }
+
 
     @FindBy(xpath = "//input[@type='search']")
     WebElement searchField;
 
 
-    public MainPage (WebDriver driver) {
-        PageFactory.initElements(driver, this);
-    }
 
-    public void findProduct() {
 
+
+    public void searchProduct () {
         searchField.click();
         searchField.sendKeys("playstation");
         searchField.submit();
-
-
     }
+
+
+
+
+
+
 
 }
