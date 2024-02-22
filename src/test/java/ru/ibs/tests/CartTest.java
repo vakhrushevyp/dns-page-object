@@ -23,18 +23,16 @@ public class CartTest extends BaseTests {
     @Test
     public void cartTest() {
 
-    homePage.searchProduct();
+    homePage.searchProduct("playstation");
     searchPage.selectProductByText("PlayStation 5 Slim");
-    productPage.savePrice();
     productPage.addToBasket();
     basketPage.addServiceItem("Продления гарантии");
     basketPage.setServiceItemYear("+2 года");
-    basketPage.saveTotalPrice();
-
-
-
-
-
+    basketPage.searchProduct("телевизор xiaomi");
+    searchPage.selectProductByText("50\" Телевизор Xiaomi Mi TV A2, 4K Ultra HD");
+    productPage.addToBasket();
+    basketPage.checkTotalPrice();
+    basketPage.checkServiceItemYear("PlayStation 5 Slim","+2 года");
 
         try {
             Thread.sleep(5000);

@@ -16,18 +16,14 @@ public class HomePage extends BasePage {
     }
 
 
-    @FindBy(xpath = "//input[@type='search']")
-    WebElement searchField;
 
-
-
-
-
-    public void searchProduct () {
+    public void searchProduct (String text) {
         searchField.click();
-        searchField.sendKeys("playstation");
+        searchField.sendKeys(text);
         searchField.submit();
     }
+
+
 
 
 

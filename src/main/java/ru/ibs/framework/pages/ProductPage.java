@@ -6,7 +6,9 @@ import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import ru.ibs.framework.Data.Product;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ProductPage extends BasePage {
@@ -27,21 +29,13 @@ public class ProductPage extends BasePage {
     WebElement getBasketButton;
 
 
-    
-    
 
 
-
-
-    int price = 0;
-
-    public void savePrice() {
-        price = Integer.parseInt(productPrice.getText().replaceAll(" ",""));
-        System.out.println(price);
-    }
 
     public void addToBasket() {
+        products.get(currentProductId).setCost(Integer.parseInt(productPrice.getText().replaceAll(" ", "")));
         basketButton.click();
+
         try {
             getBasketButton.click();
         } catch (TimeoutException ignore) {
