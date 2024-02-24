@@ -30,12 +30,9 @@ public class TestPropManager {
             properties.load(new FileInputStream("src/main/resources/" +
                     System.getProperty("propFile", "application") +
                     ".properties"));
-
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
     }
 
 
