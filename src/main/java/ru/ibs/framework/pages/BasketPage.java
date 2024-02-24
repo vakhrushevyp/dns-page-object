@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import ru.ibs.framework.Data.Product;
+import ru.ibs.framework.data.Product;
 
 import java.util.List;
 import java.util.Map;

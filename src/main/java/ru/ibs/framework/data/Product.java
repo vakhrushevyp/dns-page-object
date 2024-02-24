@@ -1,4 +1,4 @@
-package ru.ibs.framework.Data;
+package ru.ibs.framework.data;
 
 public class Product {
 

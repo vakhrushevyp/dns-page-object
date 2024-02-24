@@ -4,7 +4,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import ru.ibs.framework.Data.Product;
+import ru.ibs.framework.data.Product;
 import ru.ibs.framework.managers.DriverManager;
 import ru.ibs.framework.managers.PageManager;
 
