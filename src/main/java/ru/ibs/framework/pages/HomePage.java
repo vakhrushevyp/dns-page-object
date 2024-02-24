@@ -1,26 +1,31 @@
 package ru.ibs.framework.pages;
 
-import org.openqa.selenium.WebDriver;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
-import ru.ibs.framework.managers.DriverManager;
 
-import java.util.List;
+
 
 public class HomePage extends BasePage {
 
 
-    public HomePage(WebDriver driver) {
-        super(driver);
+    @FindBy(xpath = "//span[contains(text(),'Я согласен')]")
+    WebElement cookiesButton;
+
+
+    public HomePage closeCookiesButton() {
+        cookiesButton.click();
+        return this;
     }
 
 
 
-    public void searchProduct (String text) {
+
+    public SearchPage searchProduct (String text) {
         searchField.click();
         searchField.sendKeys(text);
         searchField.submit();
+        return pageManager.getSearchPage();
     }
 
 

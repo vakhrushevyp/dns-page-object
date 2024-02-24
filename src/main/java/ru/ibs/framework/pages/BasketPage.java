@@ -2,22 +2,17 @@ package ru.ibs.framework.pages;
 
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import ru.ibs.framework.Data.Product;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 public class BasketPage extends BasePage {
-    public BasketPage(WebDriver driver) {
-        super(driver);
-    }
+
 
     int totalPrice;
-
 
     String productXpath = "//div[@data-meta-name='BasketSnippet' and @data-meta-id='%d']";
 
@@ -31,12 +26,10 @@ public class BasketPage extends BasePage {
     WebElement totalPriceText;
 
 
-
-
-    public void addServiceItem(String text) {
-        System.out.println(String.format(productXpath+"//div[@data-meta-name='AdditionalService']/button/span/span/span",currentProductId));
-        serviceItemText =  driverManager.getDriver().findElements(By.xpath(String.format(productXpath+"//div[@data-meta-name='AdditionalService']/button/span/span/span",currentProductId)));
-        for (WebElement item: serviceItemText ) {
+    public BasketPage addServiceItem(String text) {
+        System.out.printf(productXpath + "//div[@data-meta-name='AdditionalService']/button/span/span/span%n", currentProductId);
+        serviceItemText = driverManager.getDriver().findElements(By.xpath(String.format(productXpath + "//div[@data-meta-name='AdditionalService']/button/span/span/span", currentProductId)));
+        for (WebElement item : serviceItemText) {
             if (item.getText().contains(text)) {
 
                 item.findElement(By.xpath("../../../../..//input")).click();
@@ -47,13 +40,14 @@ public class BasketPage extends BasePage {
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
                 }
-                return;
+                return this;
             }
         }
+        return this;
     }
 
-    public void setServiceItemYear(String text) {
-         for (WebElement item: serviceItemYear ) {
+    public BasketPage setServiceItemYear(String text) {
+        for (WebElement item : serviceItemYear) {
             if (item.getDomAttribute("data-meta-value").contains(text)) {
                 item.click();
                 try {
@@ -63,53 +57,54 @@ public class BasketPage extends BasePage {
                 }
                 products.get(currentProductId).setServiceCost(Integer.parseInt(item.findElement(By.xpath("../../../..//span[@data-meta-price]/span[@color]")).getText()));
                 System.out.println(item.findElement(By.xpath("../../../..//span[@data-meta-price]/span[@color]")).getText());
-                return;
+                return this;
             }
         }
+        return this;
     }
 
-    public void searchProduct (String text) {
+    public SearchPage searchProduct(String text) {
         searchField.click();
         searchField.sendKeys(text);
         searchField.submit();
+        return pageManager.getSearchPage();
     }
 
 
-    public void checkTotalPrice() {
+    public BasketPage checkTotalPrice() {
         int summaryProductsPrice = 0;
-        for (Map.Entry<Integer, Product> product: products.entrySet()) {
-            summaryProductsPrice+=product.getValue().getCost();
-            summaryProductsPrice+=product.getValue().getServiceCost();
+        for (Map.Entry<Integer, Product> product : products.entrySet()) {
+            summaryProductsPrice += product.getValue().getCost();
+            summaryProductsPrice += product.getValue().getServiceCost();
         }
 
         totalPrice = Integer.parseInt(totalPriceText.getText().replaceAll(" ", ""));
 
         Assertions.assertEquals(summaryProductsPrice, totalPrice, "Сумма в корзине не соответствует сумме товаров");
+
+        return this;
     }
 
-    public void checkServiceItemYear (String productName, String year) {
+    public void checkServiceItemYear(String productName, String year) {
         currentProductId = 0;
-        for (Map.Entry<Integer, Product> product: products.entrySet()) {
+        for (Map.Entry<Integer, Product> product : products.entrySet()) {
             if (product.getValue().getName().equals(productName)) {
                 currentProductId = product.getKey();
                 System.out.println("тест2");
-
             }
         }
-       List<WebElement> serviceItemYears =  driverManager.getDriver().findElements(By.xpath(String.format(productXpath+"//div[@data-meta-name='AdditionalService']//label",currentProductId)));
+        List<WebElement> serviceItemYears = driverManager.getDriver().findElements(By.xpath(String.format(productXpath + "//div[@data-meta-name='AdditionalService']//label", currentProductId)));
         WebElement tempInput;
-        for (WebElement element: serviceItemYears ) {
+        for (WebElement element : serviceItemYears) {
             tempInput = element.findElement(By.xpath("input"));
             if (element.getText().contains(year)) {
-               Assertions.assertEquals("true", tempInput.getDomAttribute("checked"), "Аттрибут Checked не true");
+                Assertions.assertEquals("true", tempInput.getDomAttribute("checked"), "Аттрибут Checked не true");
                 return;
             }
 
         }
 
     }
-
-
 
 
 }

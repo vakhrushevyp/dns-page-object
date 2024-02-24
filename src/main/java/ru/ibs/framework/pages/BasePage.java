@@ -1,22 +1,22 @@
 package ru.ibs.framework.pages;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import ru.ibs.framework.Data.Product;
 import ru.ibs.framework.managers.DriverManager;
+import ru.ibs.framework.managers.PageManager;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 public class BasePage {
 
-    protected final DriverManager driverManager = DriverManager.getDriverManager();
+    protected DriverManager driverManager = DriverManager.getDriverManager();
+    protected PageManager pageManager = PageManager.getPageManager();
 
-    public BasePage(WebDriver driver) {
-        PageFactory.initElements(driverManager.getDriver(),this);
+    public BasePage() {
+        PageFactory.initElements(driverManager.getDriver(), this);
     }
 
     public static HashMap<Integer, Product> products = new HashMap<>();
@@ -28,7 +28,18 @@ public class BasePage {
     @FindBy(xpath = "//input[@type='search']")
     WebElement searchField;
 
+    public void moveToElement(WebElement element) {
+        Actions action = new Actions(driverManager.getDriver());
+        action.scrollToElement(element).build().perform();
+    }
 
+    public void sleep(int mls) {
+        try {
+            Thread.sleep(mls);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
 
 
 }

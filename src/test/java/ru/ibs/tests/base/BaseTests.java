@@ -4,57 +4,41 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import ru.ibs.framework.managers.DriverManager;
-
-import java.time.Duration;
+import ru.ibs.framework.managers.InitManager;
+import ru.ibs.framework.managers.PageManager;
+import ru.ibs.framework.managers.TestPropManager;
+import ru.ibs.framework.utils.PropConst;
 
 public class BaseTests {
 
-    protected final DriverManager driverManager = DriverManager.getDriverManager();
+    private final TestPropManager testPropManager = TestPropManager.getTestPropManager();
+    protected PageManager pageManager = PageManager.getPageManager();
 
 
     @BeforeAll
     static void beforeAll() {
 
+        InitManager.initFramework();
     }
 
     @BeforeEach
     void beforeEach() {
 
-     /*   switch (System.getProperty("browser")) {
-            case "firefox":
-                driver = new FirefoxDriver();
-                break;
-            case "chrome":
-                driver = new ChromeDriver();
-                break;
-            case "edge":
-                driver = new EdgeDriver();
-                break;
-            default:
-                driver = new ChromeDriver();
-        }*/
-
-        driverManager.getDriver().manage().window().maximize();
-        driverManager.getDriver().manage().timeouts().pageLoadTimeout(Duration.ofSeconds(15));
-        driverManager.getDriver().manage().timeouts().scriptTimeout(Duration.ofSeconds(15));
-        driverManager.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
-        driverManager.getDriver().get("https://www.citilink.ru/");
-
+        DriverManager.getDriverManager().getDriver()
+                .get(testPropManager.getProperty(PropConst.BASE_URL));
     }
 
 
     @AfterEach
     void afterEach() {
-        driverManager.getDriver().quit();
 
     }
 
     @AfterAll
     static void afterAll() {
 
+        InitManager.quitFramework();
 
     }
 }
