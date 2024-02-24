@@ -22,7 +22,7 @@ public class SearchPage extends BasePage {
                 currentProductId = Integer.parseInt(item.findElement(By.xpath("../../..")).getDomAttribute("data-meta-product-id"));
                 product.setCode(currentProductId);
                 products.put(currentProductId, product);
-                moveToElement(item);
+                scrollToElement(item);
                 sleep(1000);
                 item.click();
                 return new ProductPage();

@@ -28,7 +28,7 @@ public class BasePage {
     @FindBy(xpath = "//input[@type='search']")
     WebElement searchField;
 
-    public void moveToElement(WebElement element) {
+    public void scrollToElement(WebElement element) {
         Actions action = new Actions(driverManager.getDriver());
         action.scrollToElement(element).build().perform();
     }
