@@ -1,11 +1,12 @@
 package ru.ibs.tests;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import ru.ibs.tests.base.BaseTests;
 
 public class CartTest extends BaseTests {
 
-
+    @DisplayName("Добавление продуктов в корзину")
     @Test
     public void cartTest() {
 

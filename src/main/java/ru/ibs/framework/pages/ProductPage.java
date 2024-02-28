@@ -1,5 +1,6 @@
 package ru.ibs.framework.pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -16,7 +17,7 @@ public class ProductPage extends BasePage {
     @FindBy(xpath = "//button/span[contains(text(),'Перейти в корзину')]")
     WebElement getBasketButton;
 
-
+    @Step("Добавляем продукт в корзину")
     public BasketPage addToBasket() {
         products.get(currentProductId).setCost(Integer.parseInt(productPrice.getText().replaceAll(" ", "")));
         basketButton.click();

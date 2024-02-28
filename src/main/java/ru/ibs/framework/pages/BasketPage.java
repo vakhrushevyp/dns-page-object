@@ -1,5 +1,6 @@
 package ru.ibs.framework.pages;
 
+import io.qameta.allure.Step;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -25,7 +26,7 @@ public class BasketPage extends BasePage {
     @FindBy(xpath = "//div[@data-meta-name='BasketSummary']//span[@data-meta-price]/span[@color]")
     WebElement totalPriceText;
 
-
+    @Step("Добавляем продукту услугу {text}")
     public BasketPage addServiceItem(String text) {
         System.out.printf(productXpath + "//div[@data-meta-name='AdditionalService']/button/span/span/span%n", currentProductId);
         serviceItemText = driverManager.getDriver().findElements(By.xpath(String.format(productXpath + "//div[@data-meta-name='AdditionalService']/button/span/span/span", currentProductId)));
@@ -45,7 +46,7 @@ public class BasketPage extends BasePage {
         }
         return this;
     }
-
+    @Step("Добавляем к услуге срок действия {text}")
     public BasketPage setServiceItemYear(String text) {
         for (WebElement item : serviceItemYear) {
             if (item.getDomAttribute("data-meta-value").contains(text)) {
@@ -62,7 +63,7 @@ public class BasketPage extends BasePage {
         }
         return this;
     }
-
+    @Step("Поиск продоктов с названием {text}")
     public SearchPage searchProduct(String text) {
         searchField.click();
         searchField.sendKeys(text);
@@ -70,7 +71,7 @@ public class BasketPage extends BasePage {
         return pageManager.getSearchPage();
     }
 
-
+    @Step("Проверяем соответствие суммы корзины и суммы товаров")
     public BasketPage checkTotalPrice() {
         int summaryProductsPrice = 0;
         for (Map.Entry<Integer, Product> product : products.entrySet()) {
@@ -85,6 +86,7 @@ public class BasketPage extends BasePage {
         return this;
     }
 
+    @Step("Проверяем что у {productName} в услуге выбран срок {year}")
     public void checkServiceItemYear(String productName, String year) {
         currentProductId = 0;
         for (Map.Entry<Integer, Product> product : products.entrySet()) {
