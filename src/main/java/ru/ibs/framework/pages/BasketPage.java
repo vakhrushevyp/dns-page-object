@@ -32,8 +32,8 @@ public class BasketPage extends BasePage {
         serviceItemText = driverManager.getDriver().findElements(By.xpath(String.format(productXpath + "//div[@data-meta-name='AdditionalService']/button/span/span/span", currentProductId)));
         for (WebElement item : serviceItemText) {
             if (item.getText().contains(text)) {
-
                 item.findElement(By.xpath("../../../../..//input")).click();
+                addScreenshot();
                 serviceItemYear = item.findElements(By.xpath("../../../..//label"));
                 products.get(currentProductId).setService(text);
                 try {
@@ -51,6 +51,7 @@ public class BasketPage extends BasePage {
         for (WebElement item : serviceItemYear) {
             if (item.getDomAttribute("data-meta-value").contains(text)) {
                 item.click();
+                addScreenshot();
                 try {
                     Thread.sleep(1000);
                 } catch (InterruptedException e) {
@@ -68,6 +69,7 @@ public class BasketPage extends BasePage {
         searchField.click();
         searchField.sendKeys(text);
         searchField.submit();
+        addScreenshot();
         return pageManager.getSearchPage();
     }
 
@@ -81,8 +83,9 @@ public class BasketPage extends BasePage {
 
         totalPrice = Integer.parseInt(totalPriceText.getText().replaceAll(" ", ""));
 
-        Assertions.assertEquals(summaryProductsPrice, totalPrice, "Сумма в корзине не соответствует сумме товаров");
 
+        Assertions.assertEquals(summaryProductsPrice, totalPrice, "Сумма в корзине не соответствует сумме товаров");
+        addScreenshot();
         return this;
     }
 
@@ -92,7 +95,6 @@ public class BasketPage extends BasePage {
         for (Map.Entry<Integer, Product> product : products.entrySet()) {
             if (product.getValue().getName().equals(productName)) {
                 currentProductId = product.getKey();
-                System.out.println("тест2");
             }
         }
         List<WebElement> serviceItemYears = driverManager.getDriver().findElements(By.xpath(String.format(productXpath + "//div[@data-meta-name='AdditionalService']//label", currentProductId)));
@@ -100,6 +102,7 @@ public class BasketPage extends BasePage {
         for (WebElement element : serviceItemYears) {
             tempInput = element.findElement(By.xpath("input"));
             if (element.getText().contains(year)) {
+                addScreenshot();
                 Assertions.assertEquals("true", tempInput.getDomAttribute("checked"), "Аттрибут Checked не true");
                 return;
             }

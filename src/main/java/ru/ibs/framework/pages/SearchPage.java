@@ -27,6 +27,7 @@ public class SearchPage extends BasePage {
                 scrollToElement(item);
                 sleep(1000);
                 item.click();
+                addScreenshot();
                 return new ProductPage();
             }
         }

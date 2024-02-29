@@ -16,6 +16,7 @@ public class HomePage extends BasePage {
     @Step("Закрытие сообщение cookies")
     public HomePage closeCookiesButton() {
         cookiesButton.click();
+        addScreenshot();
         return this;
     }
 
@@ -26,6 +27,7 @@ public class HomePage extends BasePage {
         searchField.click();
         searchField.sendKeys(text);
         searchField.submit();
+        addScreenshot();
         return pageManager.getSearchPage();
     }
 

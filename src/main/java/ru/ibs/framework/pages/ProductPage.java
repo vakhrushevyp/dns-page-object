@@ -21,9 +21,11 @@ public class ProductPage extends BasePage {
     public BasketPage addToBasket() {
         products.get(currentProductId).setCost(Integer.parseInt(productPrice.getText().replaceAll(" ", "")));
         basketButton.click();
+        addScreenshot();
 
         try {
             getBasketButton.click();
+            addScreenshot();
         } catch (TimeoutException ignore) {
 
         }
