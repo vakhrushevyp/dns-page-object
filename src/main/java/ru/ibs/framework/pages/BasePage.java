@@ -1,7 +1,7 @@
 package ru.ibs.framework.pages;
 
+
 import io.qameta.allure.Attachment;
-import io.qameta.allure.junit5.AllureJunit5;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
@@ -50,8 +50,6 @@ public class BasePage {
     public byte[] addScreenshot() {
         return ((TakesScreenshot) driverManager.getDriver()).getScreenshotAs(OutputType.BYTES);
     }
-
-
 
 
 }

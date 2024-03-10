@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="f8fc94e8-b96e-42c3-b084-d948f379d34b" name="Changes" comment="Добавлен Allure + скриншоты">
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/ibs/framework/steps/BasePageSteps.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/ibs/framework/steps/BasketPageSteps.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/ibs/framework/steps/HomePageSteps.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/ibs/framework/steps/Hooks.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/ibs/framework/steps/ProductPageSteps.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/ibs/framework/steps/SearchPageSteps.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/ru/ibs/framework/CucumberRunner.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/cucumber.feature" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/junit-platform.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ibs/framework/pages/BasePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ibs/framework/pages/BasePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ibs/framework/pages/BasketPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ibs/framework/pages/BasketPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ibs/framework/pages/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ibs/framework/pages/HomePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ibs/framework/pages/ProductPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ibs/framework/pages/ProductPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ibs/framework/pages/SearchPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ibs/framework/pages/SearchPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ru/ibs/tests/CartTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ru/ibs/tests/CartTests.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="workspaceImportEnabled" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectId" id="2c5LSblSwZhfevVvMdOeYQq5Dpv" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="autoscrollToSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/VAKHRUSHEV/IdeaProjects/dns-page-object/src/test/java/ru/ibs/tests&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
+  }
+}</component>
+  <component name="RunManager" selected="Maven.dns-page-object [clean,test...]">
+    <configuration name="CartTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="dns-page-object" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ru.ibs.tests.base.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ru.ibs.tests" />
+      <option name="MAIN_CLASS_NAME" value="ru.ibs.tests.CartTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CartTests.cartTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="dns-page-object" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ru.ibs.tests.base.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ru.ibs.tests" />
+      <option name="MAIN_CLASS_NAME" value="ru.ibs.tests.CartTests" />
+      <option name="METHOD_NAME" value="cartTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="dns-page-object [clean,test...]" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="clean" />
+                <option value="test" />
+                <option value="-Dcucumber.filter.tags=@smoke" />
+                <option value="allure:report" />
+              </list>
+            </option>
+            <option name="pomFileName" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="JUnit.CartTests" />
+      <item itemvalue="JUnit.CartTests.cartTest" />
+      <item itemvalue="Maven.dns-page-object [clean,test...]" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.CartTests" />
+        <item itemvalue="JUnit.CartTests.cartTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f8fc94e8-b96e-42c3-b084-d948f379d34b" name="Changes" comment="" />
+      <created>1707396493895</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1707396493895</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Первый коммит">
+      <created>1707487703562</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1707487703562</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Первый коммит">
+      <created>1708611197790</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1708611197790</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Добавлен Allure">
+      <created>1709110062299</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1709110062299</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Добавлен Allure + скриншоты">
+      <created>1709193045501</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1709193045501</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Первый" />
+    <MESSAGE value="Первый коммит" />
+    <MESSAGE value="Добавлен Allure" />
+    <MESSAGE value="Добавлен Allure + скриншоты" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавлен Allure + скриншоты" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
